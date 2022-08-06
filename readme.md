@@ -3,7 +3,8 @@
 　WindowsのDOS.BATです。  
 　QGIS.BAT  
 　QGS.CFG  
-　を同じフォルダにせってしてください。  
+　を同じフォルダに設置してください。   
+　c:\に権限が必要です。  
 #### ・QGISポータブル版の入手先  
 　https://github.com/pigreco/QGIS_portable_3x  
 　http://kouapp.main.jp/ringyoqgis3/qgisportable/
