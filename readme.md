@@ -1,11 +1,16 @@
-### QGISランチャー  
-　QGISポーラブル版を私の趣味によりカスタマイズしたバージョン管理やインストールを含んだランチャー  
+### QGISランチャー（とりあえず作成中）  
+　現在のバージョンver0.1  
+　QGISポータブル版を私の趣味によりカスタマイズしたバージョン管理やインストールを含んだランチャー  
 　WindowsのDOS.BATです。  
+　　QGIS.BAT　　ランチャー本体  
+　　QGIS.CFG　　設定ファイル  
+　を同じフォルダに設置してください。   
+　　c:\に権限が必要です。  
 #### ・QGISポータブル版の入手先  
-　https://github.com/pigreco/QGIS_portable_3x  
-　http://kouapp.main.jp/ringyoqgis3/qgisportable/
+　（設定中）https://github.com/pigreco/QGIS_portable_3x  
+　（現在こっちのみ）http://kouapp.main.jp/ringyoqgis3/qgisportable/
 #### ・統一環境としてコアプラグインに組み込み予定のプラグイン  
 ##### 検索  
-　https://github.com/yamamoto-ryuzo/yr-qgis-searchlayers-plugin  
+　（設定中）https://github.com/yamamoto-ryuzo/yr-qgis-searchlayers-plugin  
 ##### 印刷  
-　https://github.com/yamamoto-ryuzo/yr-qgis-easyinstantprint-plugin  
+　（設定中）https://github.com/yamamoto-ryuzo/yr-qgis-easyinstantprint-plugin  
