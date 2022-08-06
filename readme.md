@@ -1,6 +1,9 @@
 ### QGISランチャー  
 　QGISポーラブル版を私の趣味によりカスタマイズしたバージョン管理やインストールを含んだランチャー  
 　WindowsのDOS.BATです。  
+　QGIS.BAT  
+　QGS.CFG  
+　を同じフォルダにせってしてください。  
 #### ・QGISポータブル版の入手先  
 　https://github.com/pigreco/QGIS_portable_3x  
 　http://kouapp.main.jp/ringyoqgis3/qgisportable/
