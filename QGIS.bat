@@ -16,24 +16,27 @@ for /f "tokens=1,* delims==" %%a in (QGIS.cfg) do (
 rem ダウンロードサーバーの設定
 set QGIS_download=%USERPROFILE%\Downloads\%QGIS_ver%
 
+rem 保存先ホルダ名の設定
 rem 部分参照は %str:~-m,-n% 後ろからm文字目から、最後のn文字分を除いたもの
 SET QGIS_Folder=%QGIS_ver:~-0,-4%
 
 rem ==========ファイルダウンロード==========
 rem インストール済みかどうかを確認
 if not exist %QGIS_Install%\QGIS_portable\%QGIS_Folder% (
-rem bitsadmin /transfer ＜ジョブ名＞ ＜URL＞ ＜保存先ファイル名＞
-bitsadmin /transfer download-%QGIS_Folder% %QGIS_http%%QGIS_ver%   %QGIS_download%
+    rem bitsadmin /transfer ＜ジョブ名＞ ＜URL＞ ＜保存先ファイル名＞
+    bitsadmin /transfer download-%QGIS_Folder% %QGIS_http%%QGIS_ver%   %QGIS_download%
+) else (
+    goto Launch_QGIS
 )
-
-rem ==========Zipファイルの解凍 PowerShellコマンド==========
+rem =====Zipファイルの解凍 PowerShellコマンド
 rem Expand-Archive -Path ＜ZIPファイル＞　＜展開先フォルダ＞
-rem powershell Expand-Archive -Path %QGIS_download% %QGIS_Install%\QGIS_portable
+powershell Expand-Archive -Path %QGIS_download% %QGIS_Install%\QGIS_portable
 
 
 rem ==========QGIS起動==========
+rem  rem QGIS_http=http://kouapp.main.jp/qgisp/
+:Launch_QGIS
 %QGIS_Install%\QGIS_portable\%QGIS_Folder%\qgis_p起動.bat
-
 
 rem　バッチ終了
 exit /b
