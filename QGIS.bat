@@ -1,9 +1,8 @@
+chcp 65001
+rem ↑　文字コードの指定　UTF-8＝65001
 rem ====================環境設定====================
 rem 起動フォルダをカレントフォルダに設定
 cd /d %~dp0
-
-rem 文字コードの指定　UTF-8＝65001
-chcp 65001
 
 rem ====================配信用QGISのインストール====================
 rem ==========環境変数の設定==========
@@ -38,10 +37,10 @@ powershell Expand-Archive -Path %QGIS_download% %QGIS_Install%\QGIS_portable
 rem ==========QGIS起動==========
 :Launch_QGIS
 
-rem  rem QGIS_http=http://kouapp.main.jp/qgisp/
+rem QGIS_http=http://kouapp.main.jp/qgisp/
 %QGIS_Install%\QGIS_portable\%QGIS_Folder%\qgis_p起動.bat
 
-rem　バッチ終了
+rem バッチ終了
 exit /b
 
 
