@@ -1,8 +1,3 @@
-## ただいま日本語のバッチファイルの文字化けに悩まされ中  
-## gitHUBを経由すると化ける・・・なぜ？  
-## どうやら改行コードが気に入らないらしい！  
-![image](https://user-images.githubusercontent.com/86514652/183271279-f4d47d47-e197-4202-8654-41752f1c36bc.png)
-
 ### QGISランチャー（とりあえず作成中）  
 　現在のバージョンver0.1  
 　QGISポータブル版を私の趣味によりカスタマイズしたバージョン管理やインストールを含んだランチャー  
@@ -19,3 +14,5 @@
 　（設定中）https://github.com/yamamoto-ryuzo/yr-qgis-searchlayers-plugin  
 ##### 印刷  
 　（設定中）https://github.com/yamamoto-ryuzo/yr-qgis-easyinstantprint-plugin  
+#### ・補足事項  
+　.BATの改行コードをWindows用にするため　.gitattributes　を設置  
