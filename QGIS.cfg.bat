@@ -1,6 +1,6 @@
 rem "ダウンロードサイトの選択"
-rem "site="1" pigreco 本家"
-rem "site="2" kouapp　喜多さんのサイト"
+rem "site=1 pigreco 本家"
+rem "site=2 kouapp　喜多さんのサイト"
 set site=1
 
 rem "ダウンロードサイト"
