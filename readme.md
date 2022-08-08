@@ -10,8 +10,11 @@
 　を同じフォルダに設置してください。   
 　　c:\に権限が必要です。  
 #### ・QGISポータブル版の入手先  
-　（設定中）https://github.com/pigreco/QGIS_portable_3x  
-　（現在こっちのみ）http://kouapp.main.jp/ringyoqgis3/qgisportable/
+QGIS.CFG.BAT で設定  
+　site = 1  
+　　https://github.com/pigreco/QGIS_portable_3x  
+　site = 2  
+　　http://kouapp.main.jp/ringyoqgis3/qgisportable/
 #### ・統一環境としてコアプラグインに組み込み予定のプラグイン  
 ##### 検索  
 　（設定中）https://github.com/yamamoto-ryuzo/yr-qgis-searchlayers-plugin  
