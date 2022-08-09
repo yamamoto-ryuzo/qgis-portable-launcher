@@ -17,7 +17,8 @@ QGIS.CFG.BAT で設定
 　　http://kouapp.main.jp/ringyoqgis3/qgisportable/
 #### ・統一環境としてコアプラグインに組み込み予定のプラグイン  
 ##### 検索  
-　（設定中）https://github.com/yamamoto-ryuzo/yr-qgis-searchlayers-plugin  
+　（設定中）https://github.com/yamamoto-ryuzo/yr-qgis-searchlayers-plugin 
+　（設定中）https://github.com/yamamoto-ryuzo/GEO-search-plugin  
 ##### 印刷  
 　（設定中）https://github.com/yamamoto-ryuzo/yr-qgis-easyinstantprint-plugin  
 #### ・補足事項  
