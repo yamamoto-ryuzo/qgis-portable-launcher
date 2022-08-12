@@ -1,0 +1,2 @@
+https://github.com/yamamoto-ryuzo/GEO-search-plugin/releases/download/2.0/GEO-search-plugin-main.zip
+https://github.com/yamamoto-ryuzo/yr-qgis-searchlayers-plugin/releases/download/3.0.11%2B/yr-qgis-searchlayers-plugin-master.zip
