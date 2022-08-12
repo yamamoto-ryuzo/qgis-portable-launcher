@@ -6,8 +6,8 @@
 　　QGIS.CFG.BAT -------------　設定ファイル  
 　　QGIS_client.cfg ----------　ＱＧＩＳを起動する場合  
 　　QGIS_delivery_server.cfg -　配信サーバーとして動作する場合  
-　　QGIS_internet.cfg --------　インターネットに接続する場合 
-  　QGIS_plugin.txt-----------　追加コアプラグインZIPファイルアドレス
+　　QGIS_internet.cfg --------　インターネットに接続する場合  
+　　QGIS_plugin.txt-----------　追加コアプラグインZIPファイルアドレス  
 　を同じフォルダに設置してください。   
 　　c:\に権限が必要です。  
 #### ・QGISポータブル版の入手先  
