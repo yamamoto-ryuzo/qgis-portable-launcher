@@ -38,12 +38,10 @@ if exist "QGIS_delivery_server.cfg" (
         for /f "tokens=1,2" %%a in (QGIS_plugin.txt) do (
             set QGIS_plugin_http=%%a
             set QGIS_plugin_File=%%b
-            echo QGIS_plugin_http=!QGIS_plugin_http!
-            echo QGIS_plugin_File=!QGIS_plugin_File!
             if not exist %QGIS_delivery%\plugin\!QGIS_plugin_File! (
                 rem "=====ファイルダウンロード"
                 rem "bitsadmin /transfer ＜ジョブ名＞ ＜URL＞ ＜保存先ファイル名＞"
-                echo プラグインの読込：!QGIS_plugin_http!!QGIS_plugin_File!
+                echo プラグインのダウンロード：!QGIS_plugin_http!!QGIS_plugin_File!
                 bitsadmin /transfer download_QGIS_plugin_!QGIS_plugin_http! !QGIS_plugin_http!!QGIS_plugin_File! %QGIS_delivery%\plugin\!QGIS_plugin_File!
             )
         )
@@ -78,9 +76,10 @@ if exist "QGIS_client.cfg" (
         set QGIS_plugin_File=%%b
         rem "%変数:~開始位置,-長さ%	開始位置から右端から長さ分を除いた文字列"
         set QGIS_plugin_folder=!QGIS_plugin_File:~0,-4!
-        if not exist %QGIS_Install%\%QGIS_Folder%\%QGIS_core_plugin_folder%\%QGIS_plugin_folder% (
+        if not exist %QGIS_Install%\%QGIS_Folder%\%QGIS_core_plugin_folder%\!QGIS_plugin_folder! (
             rem "=====Zipファイルの解凍 PowerShellコマンド"
             rem "Expand-Archive -Path ＜ZIPファイル＞　＜展開先フォルダ＞"
+            echo プラグインのインストール：!QGIS_plugin_http!!QGIS_plugin_File!
             powershell Expand-Archive -Path  %QGIS_delivery%\plugin\!QGIS_plugin_File! %QGIS_Install%\%QGIS_Folder%\%QGIS_core_plugin_folder%
         )
     )
