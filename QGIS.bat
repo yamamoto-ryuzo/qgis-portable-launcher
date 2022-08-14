@@ -53,7 +53,7 @@ rem "==========クライアントモード=========="
 if exist "QGIS_client.cfg" (
     rem "==========64ビット環境の確認=========="
     rem "%変数:~開始位置,-長さ%	開始位置から右端から長さ分を除いた文字列"
-    if %PROCESSOR_ARCHITECTURE:~-2% != 64 (
+    if not %PROCESSOR_ARCHITECTURE:~-2% == 64 (
         msg %username% 64ビット環境でのみ動作します。
         exit
     )
