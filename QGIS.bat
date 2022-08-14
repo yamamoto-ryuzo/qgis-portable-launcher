@@ -77,11 +77,13 @@ if exist "QGIS_client.cfg" (
     rem "コアプラグイン　インストール済みかどうかを確認"
     rem "追加コアプラグインのインストール"
     rem "tokens=1,2 を使って、スペース区切りの文字列"
-    for /f "tokens=1,2" %%a in (QGIS_plugin.txt) do (
+    for /f "tokens=1,2,3" %%a in (QGIS_plugin.txt) do (
+        rem "httpアドレス"
         set QGIS_plugin_http=%%a
+        rem "ZIPファイル名"
         set QGIS_plugin_File=%%b
-        rem "%変数:~開始位置,-長さ%	開始位置から右端から長さ分を除いた文字列"
-        set QGIS_plugin_folder=!QGIS_plugin_File:~0,-4!
+        rem "解凍後のフォルダ名"
+        set QGIS_plugin_folder=%%c
         if not exist %QGIS_Install%\%QGIS_Folder%\%QGIS_core_plugin_folder%\!QGIS_plugin_folder! (
             rem "=====Zipファイルの解凍 PowerShellコマンド"
             rem "Expand-Archive -Path ＜ZIPファイル＞　＜展開先フォルダ＞"
