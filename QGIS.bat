@@ -95,10 +95,11 @@ if exist "QGIS_client.cfg" (
     rem "QGISの起動"
     rem "起動用フォルダに移動"
     cd %QGIS_Install%\%QGIS_Folder%
+    rem "「start」コマンドで呼び出された子バッチファイルは親バッチファイルとは別に起動し走ります。"
     if %site% == 1 (
-        %QGIS_Install%\%QGIS_Folder%\qgis-ltr-grass.bat
+        start %QGIS_Install%\%QGIS_Folder%\qgis-ltr-grass.bat
     ) else (
-        %QGIS_Install%\%QGIS_Folder%\qgis_p起動.bat
+        start %QGIS_Install%\%QGIS_Folder%\qgis_p起動.bat
     )
 )
 
