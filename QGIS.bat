@@ -10,13 +10,6 @@ rem 遅延展開する変数の記述方法を「%変数名%」から「!変数�
 rem for を利用時には必ず必要
 setlocal enabledelayedexpansion
 
-rem "====================64ビット環境の確認===================="
-rem "%変数:~開始位置,-長さ%	開始位置から右端から長さ分を除いた文字列"
-if %PROCESSOR_ARCHITECTURE:~-2% != 64 (
-    msg %username% 64ビット環境でのみ動作します。
-    exit
-)
-
 rem "====================配信用QGISのダウンロード===================="
 
 rem "==========環境変数の設定=========="
@@ -58,6 +51,12 @@ if exist "QGIS_delivery_server.cfg" (
 rem "====================配信用QGISのインストール===================="
 rem "==========クライアントモード=========="
 if exist "QGIS_client.cfg" (
+    rem "==========64ビット環境の確認=========="
+    rem "%変数:~開始位置,-長さ%	開始位置から右端から長さ分を除いた文字列"
+    if %PROCESSOR_ARCHITECTURE:~-2% != 64 (
+        msg %username% 64ビット環境でのみ動作します。
+        exit
+    )
     rem "インストール済みかどうかを確認"
     rem "インストール先のフォルダ名の設定"
     if not exist %QGIS_Install%\%QGIS_Folder% (
