@@ -1,4 +1,7 @@
-### QGISランチャー（とりあえず作成中）  
+### QGISランチャー
+（今後の予定）
+　32ビット最終版の対応
+（現状）
 　QGISポータブル版を私の趣味によりカスタマイズしたバージョン管理やインストールを含んだランチャー  
 　WindowsのDOS.BATです。  
 　　QGIS.BAT -----------------　ランチャー本体  
@@ -22,4 +25,4 @@ QGIS.CFG.BAT で設定
 ##### 印刷  
 　　https://github.com/yamamoto-ryuzo/yr-qgis-easyinstantprint-plugin  
 #### ・補足事項  
-　.BATの改行コードをWindows用にするため　.gitattributes　を設置  
+　.BATの改行コードをWindows用にするため　.gitattributes　を設置 
