@@ -1,4 +1,4 @@
-### QGISランチャー(Windows11非対応　ビックリ！)
+### QGISランチャー(https://github.com/pigreco/QGIS_portable_3x googleアカウントの関係でダウンロードできない場合があります。)
 （今後の予定）  
 　32ビット最終版の対応  
  
