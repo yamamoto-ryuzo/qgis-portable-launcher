@@ -6,7 +6,8 @@ set site=1
 rem "ダウンロードサイト"
 if %site% == 1 (
     set QGIS_ver=3.22.10
-    set QGIS_http=https://drive.google.com/open?id=11yACZyPKqS5UK4HhnZXnUDA69sW7AFVq&authuser=yamamoto.ryuzou%40gmail.com&usp=drive_fs
+    set QGIS_http=https://drive.google.com/file/d/11yACZyPKqS5UK4HhnZXnUDA69sW7AFVq/view?usp=sharing
+    set QGIS_File=OSGeo4W64_3.22.10-ltr_grass-saga.7z
     rem "解凍フォルダ"
     set QGIS_extract_folder=OSGeo4W64
     set QGIS_core_plugin_folder=qgis\apps\qgis-ltr\python\plugins
