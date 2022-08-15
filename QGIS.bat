@@ -3,14 +3,14 @@ chcp 65001
 rem "↑　文字コードの指定　UTF-8＝65001"
 rem "見本後は必ず「””」で囲む"
 rem "====================環境設定===================="
+rem "注意事項"
+rem "変数の代入の=の前後に空白を入れないこと！"
 rem "起動フォルダをカレントフォルダに設定"
 cd /d %~dp0
 
 rem 遅延展開する変数の記述方法を「%変数名%」から「!変数名!」に変更
 rem for を利用時には必ず必要
 setlocal enabledelayedexpansion
-
-rem "====================配信用QGISのダウンロード===================="
 
 rem "==========環境変数の設定=========="
 rem "QGIS.cfg.bat"の読み込み"
@@ -19,9 +19,28 @@ CALL QGIS.cfg.bat
 
 SET QGIS_Folder=QGIS_%QGIS_ver%
 
-rem "初期フォルダの作成"
+rem "=====初期フォルダの作成"
 md %QGIS_delivery%
 md %QGIS_delivery%\plugin\
+
+rem "=====モードセレクト"
+rem "c:クライアントモード　　ﾃﾞﾌｫﾙﾄ設定"
+rem "s:サーバーモード"
+rem "/t 1秒"
+rem "/D c ﾃﾞﾌｫﾙﾄ設定"
+choice /c cs /t 1 /D c /n
+if %errorlevel% equ 1 (
+    set mode=client
+) else (
+    rem "サーバーへクライアントのインストール"
+    rem "その後，サーバー環境としてクライアントを起動"
+    rem "ここで，設定したプロファイルがクライアントに配信される"
+    set QGIS_Install=%QGIS_delivery%
+    set mode=server
+    msg %username% サーバーモードで動作します。
+)
+
+rem "====================配信用QGISのダウンロード===================="
 
 rem "==========サーバーモード=========="
 if exist "QGIS_delivery_server.cfg" (
@@ -92,14 +111,19 @@ if exist "QGIS_client.cfg" (
         )
     )
 
+    rem "profiles等のqgisconfigを配布"
+    if not exist %QGIS_Install%\qgisconfig (
+        robocopy %QGIS_delivery%\qgisconfig %QGIS_Install%\qgisconfig /MIR
+    )
+
     rem "QGISの起動"
     rem "起動用フォルダに移動"
     cd %QGIS_Install%\%QGIS_Folder%
-    rem "「start」コマンドで呼び出された子バッチファイルは親バッチファイルとは別に起動し走ります。"
     if %site% == 1 (
-        start %QGIS_Install%\%QGIS_Folder%\qgis-ltr-grass.bat
+        rem start %QGIS_Install%\%QGIS_Folder%\qgis-ltr-grass.bat
+        call %QGIS_Install%\%QGIS_Folder%\qgis\bin\qgis-ltr.bat --profiles-path %QGIS_Install%\qgisconfig
     ) else (
-        start %QGIS_Install%\%QGIS_Folder%\qgis_p起動.bat
+        call %QGIS_Install%\%QGIS_Folder%\qgis_p起動.bat
     )
 )
 
