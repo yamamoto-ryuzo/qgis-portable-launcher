@@ -15,7 +15,12 @@ setlocal enabledelayedexpansion
 rem "==========環境変数の設定=========="
 rem "QGIS.cfg.bat"の読み込み"
 REM 設定ファイルの読み込み（結合）
+
 CALL QGIS.cfg.bat
+rem "QGIS.custum_cfg.batが優先的に適用されます。"
+if exist QGIS.custum_cfg.bat (
+    CALL QGIS.custum_cfg.bat
+)
 
 SET QGIS_Folder=QGIS_%QGIS_ver%
 
