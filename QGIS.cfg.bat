@@ -6,7 +6,7 @@ set site=1
 rem "ダウンロードサイト"
 if %site% == 1 (
     set QGIS_ver=3.22.10
-    set QGIS_http=https://doc-0k-bg-docs.googleusercontent.com/docs/securesc/60v1atgd7bougp4s2j4ke6u93vpnueb3/jnv1igju8vbv1l5r2bhkra0fu134tnj9/1660569000000/06654353961832540270/06654353961832540270/11yACZyPKqS5UK4HhnZXnUDA69sW7AFVq?e=download&ax=AI9vYm5XRLSnCp-ni0Yvyx0c-8wAemgp07TGnmB-JZW_LCf5LqisBZEnQrSWXYnk_YA3jOJzkGLLDj0U-b__SH1ZsfsqCuE8JJEl0cKSW_XJSCj3cM_zj4_Eapum1L5j2y10Ng2G75sH-hmt0dzbkVUsWU4MpwHUR_ZPzlPW_ouXfPDL2L_3cHxJWoTEXHvUZKHMSf92ENIMpWozxCVykeoZt2HjDYhSEN-1FKcsD-ErOTH3Uk8y5_Wea7vtkYSEaiW48oIKUdiUtlm0BSACrUqrvCG87FKHzaRQJLbSR3BPkhBjWKoeYAXbF7eerRe4jRtx3eX3BpVLG9HiV_GRqWjWpQ3FSmwpW3GepTKEM5FQ0S4xlw0M5MgpSSMGvchgHIeOTJasNXxuN-qfnzg4AmZMryFmC1gA3kh3vjJvXSJZfmirzCUiDV9QTR4fOSLvSfOxupkGlrx-OuVI_HhyDX5Gp3clIeZM7UA3SOXzoU4VOeljuogwz3gRoUTJaMhsckIOxPcSEDiQgJOY6J47r3ltmVUKh4sE6s6zQ5xlx_U5gCUKlegCL23c7uxH5cnq-BnVKTghEp95NCCBxfMKOHP3QARnvQRaMCaD8UHoKA3AIk0tXBH_Yl8KPtAy5IOkGXoz8h-6_QUBZqPcy2KtskN6y35M-fcYN2oB4dAyqU-KQB-QbHvhtgQMU3ns_nwzPfzawnH60L7_obDft1EV&uuid=b9f87101-1246-4835-8a08-7ac66352ce91&authuser=0&nonce=4hrvea4lhlbu4&user=06654353961832540270&hash=ai9um42mnnskf0q7d1k03d7t4uhdslmg
+    set QGIS_http=http://lizmap.yamakun.net:8080/OSGeo4W64_3.22.10-ltr_grass-saga.7z
     set QGIS_File=OSGeo4W64_3.22.10-ltr_grass-saga.7z
     rem "解凍フォルダ"
     set QGIS_extract_folder=OSGeo4W64
