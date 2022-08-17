@@ -1,12 +1,16 @@
 rem "ダウンロードサイトの選択"
 rem "site=1 pigreco 本家"
 rem "site=2 kouapp　喜多さんのサイト"
-set site=2
+set site=1
+rem "起動時に2を押した場合は2を選択出来るように設定"
+if %selection% == 2 (
+   set site=2 
+)
 
 rem "ダウンロードサイト"
 if %site% == 1 (
     set QGIS_ver=3.22.10
-    set QGIS_http=http://lizmap.yamakun.net:8080/OSGeo4W64_3.22.10-ltr_grass-saga.7z
+    set QGIS_http=https://drive.google.com/file/d/1-g_GH-JqsPqPRd-7mpn0NxmbF_nSy5z5/view
     set QGIS_File=OSGeo4W64_3.22.10-ltr_grass-saga.7z
     rem "解凍フォルダ"
     set QGIS_extract_folder=OSGeo4W64

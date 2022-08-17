@@ -13,14 +13,55 @@ rem for を利用時には必ず必要
 setlocal enabledelayedexpansion
 
 rem "==========環境変数の設定=========="
+
+rem "=====モードセレクト"
+rem "c:クライアントモード　　ﾃﾞﾌｫﾙﾄ設定"
+rem "s:サーバーモード"
+rem "k:喜多さんのサイト選択"
+rem "/t 1秒"
+rem "/D c ﾃﾞﾌｫﾙﾄ設定"
+choice /c csk /t 1 /D c /n
+set selection=0
+if %errorlevel% equ 1 (
+    goto :client_mode
+) else if  %errorlevel% equ 2 (
+    goto :server_mode
+) else if  %errorlevel% equ 3 (
+    rem 強制的にダウンロードサイト　site=2　を選択
+    set selection=2
+    goto :client_mode
+) else (
+    goto :client_mode
+)
+
+:server_mode
+call :config_setup
+rem "サーバーへクライアントのインストール"
+rem "その後，サーバー環境としてクライアントを起動"
+rem "ここで，設定したプロファイルがクライアントに配信される"
+set QGIS_Install=%QGIS_delivery%
+set mode=server
+msg %username% サーバーモードで動作します。
+goto :Start_download
+
+:client_mode
+call :config_setup
+set mode=client 
+goto :Start_download
+
+:config_setup
+rem "=====呼び出しコマンド"
 rem "QGIS.cfg.bat"の読み込み"
 REM 設定ファイルの読み込み（結合）
-
 CALL QGIS.cfg.bat
 rem "QGIS.custum_cfg.batが優先的に適用されます。"
 if exist QGIS.custum_cfg.bat (
     CALL QGIS.custum_cfg.bat
 )
+exit /b
+
+:Start_download
+rem "====================配信用QGISのダウンロード===================="
 
 SET QGIS_Folder=QGIS_%QGIS_ver%
 
@@ -28,35 +69,34 @@ rem "=====初期フォルダの作成"
 md %QGIS_delivery%
 md %QGIS_delivery%\plugin\
 
-rem "=====モードセレクト"
-rem "c:クライアントモード　　ﾃﾞﾌｫﾙﾄ設定"
-rem "s:サーバーモード"
-rem "/t 1秒"
-rem "/D c ﾃﾞﾌｫﾙﾄ設定"
-choice /c cs /t 1 /D c /n
-if %errorlevel% equ 1 (
-    set mode=client
-) else (
-    rem "サーバーへクライアントのインストール"
-    rem "その後，サーバー環境としてクライアントを起動"
-    rem "ここで，設定したプロファイルがクライアントに配信される"
-    set QGIS_Install=%QGIS_delivery%
-    set mode=server
-    msg %username% サーバーモードで動作します。
-)
-
-rem "====================配信用QGISのダウンロード===================="
-
 rem "==========サーバーモード=========="
 if exist "QGIS_delivery_server.cfg" (
     if exist "QGIS_internet.cfg" (
+
+        :QGIS_download
         rem "配信ファイルがない場合は，配信ファイルのダウンロード"
         rem "QGIS本体のダウンロード"
+        rem 「for」コマンドを使った無限ループ
         if not exist %QGIS_delivery%\%QGIS_File% (
-            rem "=====ファイルダウンロード"
-            rem "bitsadmin /transfer ＜ジョブ名＞ ＜URL＞ ＜保存先ファイル名＞"
-            bitsadmin /transfer download_QGIS_%QGIS_ver% %QGIS_http% %QGIS_delivery%\%QGIS_File%
+            if %site% == 1 (
+                explorer %QGIS_delivery%
+                start "" %QGIS_http%
+                rem "powershell で %ERRORLEVEL% を参照すると 0 または 1 の値しか取得することができません。（ 0 以外の値は全て 1 として返されます。)"
+                powershell -Command "Add-Type -AssemblyName System.Windows.Forms;[System.Windows.Forms.MessageBox]::Show(\"1-自動で開かれたサイトからダウンロードをしてください。`n2-ダウンロードが終了したら，%QGIS_delivery% フォルダに移動してください`n3-1.2の作業が終わったら「ＯＫ」を押してください。`n`n`※次の作業である，解凍の途中で失敗すると起動しません。気長に待ってください。\", 'ダウンロード', 'OK', 'Asterisk')"
+            ) else (
+                rem "=====ファイルダウンロード"
+                rem "bitsadmin /transfer ＜ジョブ名＞ ＜URL＞ ＜保存先ファイル名＞"
+                bitsadmin /transfer download_QGIS_%QGIS_ver% %QGIS_http% %QGIS_delivery%\%QGIS_File%
+            )
         )
+
+        rem ダウンロードが正しく終了したかの確認
+        if not exist %QGIS_delivery%\%QGIS_File% (
+            powershell -Command "Add-Type -AssemblyName System.Windows.Forms;[System.Windows.Forms.MessageBox]::Show(\"正しくダウンロード及びファイルの移動ができませんでした。`n一度終了します。`n再起動してください。`n`n※よくわからない場合は起動後1秒位以内に「k」を押してください\", 'ダウンロード', 'OK', 'Asterisk')"
+            exit
+        )
+
+        :Plugin_download
         rem "追加コアプラグインのダウンロード"
         rem "tokens=1,2 を使って、スペース区切りの文字列"
         for /f "tokens=1,2" %%a in (QGIS_plugin.txt) do (
@@ -117,7 +157,7 @@ if exist "QGIS_client.cfg" (
     )
 
     rem "profiles等のqgisconfigを配布"
-    if not exist %QGIS_Install%\qgisconfig (
+    if exist %QGIS_delivery%\qgisconfig (
         robocopy %QGIS_delivery%\qgisconfig %QGIS_Install%\qgisconfig /MIR
     )
 
