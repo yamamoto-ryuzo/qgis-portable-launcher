@@ -1,4 +1,4 @@
-rem @echo off
+@echo off
 chcp 65001
 rem "↑　文字コードの指定　UTF-8＝65001"
 rem "見本後は必ず「””」で囲む"
@@ -17,18 +17,28 @@ rem "==========環境変数の設定=========="
 rem "=====モードセレクト"
 rem "c:クライアントモード　　ﾃﾞﾌｫﾙﾄ設定"
 rem "s:サーバーモード"
-rem "k:喜多さんのサイト選択"
+rem "p:site=1 pigreco 本家　ﾃﾞﾌｫﾙﾄ設定"
+rem "k:site=2 kouapp　喜多さんのサイト"
 rem "/t 1秒"
 rem "/D c ﾃﾞﾌｫﾙﾄ設定"
-choice /c csk /t 1 /D c /n
+choice /c cspk /t 1 /D c /n
 set selection=0
 if %errorlevel% equ 1 (
+    rem "ﾃﾞﾌｫﾙﾄ"
     goto :client_mode
 ) else if  %errorlevel% equ 2 (
+    rem "配信用環境設定構築時"
+    msg %username% サーバーモードで動作します。 
     goto :server_mode
 ) else if  %errorlevel% equ 3 (
-    rem 強制的にダウンロードサイト　site=2　を選択
-    set selection=2
+    rem site=1　を選択
+    echo 1 > QGIS_site.txt
+    msg %username% QGISポータブル版をpigreco（本家）に設定しました。
+    goto :client_mode
+) else if  %errorlevel% equ 4 (
+    rem site=2　を選択
+    echo 2 > QGIS_site.txt
+    msg %username% QGISポータブル版をkouapp（喜多さん）に設定しました。
     goto :client_mode
 ) else (
     goto :client_mode
@@ -41,7 +51,6 @@ rem "その後，サーバー環境としてクライアントを起動"
 rem "ここで，設定したプロファイルがクライアントに配信される"
 set QGIS_Install=%QGIS_delivery%
 set mode=server
-msg %username% サーバーモードで動作します。
 goto :Start_download
 
 :client_mode
@@ -168,7 +177,7 @@ if exist "QGIS_client.cfg" (
         rem start %QGIS_Install%\%QGIS_Folder%\qgis-ltr-grass.bat
         call %QGIS_Install%\%QGIS_Folder%\qgis\bin\qgis-ltr.bat --profiles-path %QGIS_Install%\qgisconfig
     ) else (
-        call %QGIS_Install%\%QGIS_Folder%\qgis_p起動.bat
+        call %QGIS_Install%\%QGIS_Folder%\bin\qgis-ltr.bat --profiles-path %QGIS_Install%\qgisconfig
     )
 )
 

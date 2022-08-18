@@ -1,27 +1,26 @@
 rem "ダウンロードサイトの選択"
 rem "site=1 pigreco 本家"
 rem "site=2 kouapp　喜多さんのサイト"
-set site=1
-rem "起動時に2を押した場合は2を選択出来るように設定"
-if %selection% == 2 (
-   set site=2 
+for /f %%a in (QGIS_site.txt) do (
+  set site=%%a
 )
 
 rem "ダウンロードサイト"
 if %site% == 1 (
-    set QGIS_ver=3.22.10
-    set QGIS_http=https://drive.google.com/file/d/1-g_GH-JqsPqPRd-7mpn0NxmbF_nSy5z5/view
-    set QGIS_File=OSGeo4W64_3.22.10-ltr_grass-saga.7z
-    rem "解凍フォルダ"
-    set QGIS_extract_folder=OSGeo4W64
-    set QGIS_core_plugin_folder=qgis\apps\qgis-ltr\python\plugins
+  set QGIS_ver=3.22.10
+  set QGIS_http=https://drive.google.com/file/d/1-g_GH-JqsPqPRd-7mpn0NxmbF_nSy5z5/view
+  set QGIS_File=OSGeo4W64_3.22.10-ltr_grass-saga.7z
+  rem "解凍フォルダ"
+  set QGIS_extract_folder=OSGeo4W64
+  set QGIS_core_plugin_folder=qgis\apps\qgis-ltr\python\plugins
 ) else (
-    set QGIS_ver=3.22.6
-    set QGIS_http=http://kouapp.main.jp/qgisp/QGIS322_portable.zip
-    set QGIS_File=QGIS322_portable.zip
-    rem "解凍フォルダ"
-    set QGIS_extract_folder=QGIS322_portable
-    set QGIS_core_plugin_folder=apps\qgis-ltr\python\plugins
+  rem 喜多さんのバージョンは必ず_kを追加のこと
+  set QGIS_ver=3.22.6_k
+  set QGIS_http=http://kouapp.main.jp/qgisp/QGIS322_portable.zip
+  set QGIS_File=QGIS322_portable.zip
+  rem "解凍フォルダ"
+  set QGIS_extract_folder=QGIS322_portable
+  set QGIS_core_plugin_folder=apps\qgis-ltr\python\plugins
 )
 
 rem "下記フォルダにはアクセス権必要"
