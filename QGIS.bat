@@ -1,4 +1,4 @@
-@echo off
+#@echo off
 chcp 65001
 rem "↑　文字コードの指定　UTF-8＝65001"
 rem "見本後は必ず「””」で囲む"
@@ -102,7 +102,7 @@ if exist "QGIS_delivery_server.cfg" (
         rem ダウンロードが正しく終了したかの確認
         if not exist %QGIS_delivery%\%QGIS_File% (
             powershell -Command "Add-Type -AssemblyName System.Windows.Forms;[System.Windows.Forms.MessageBox]::Show(\"正しくダウンロード及びファイルの移動ができませんでした。`n一度終了します。`n再起動してください。`n`n※よくわからない場合は起動後1秒位以内に「k」を押してください\", 'ダウンロード', 'OK', 'Asterisk')"
-            exit
+            exit /b
         )
 
         :Plugin_download
@@ -128,7 +128,7 @@ if exist "QGIS_client.cfg" (
     rem "%変数:~開始位置,-長さ%	開始位置から右端から長さ分を除いた文字列"
     if not %PROCESSOR_ARCHITECTURE:~-2% == 64 (
         msg %username% 64ビット環境でのみ動作します。
-        exit
+        exit /b
     )
     rem "インストール済みかどうかを確認"
     rem "インストール先のフォルダ名の設定"
@@ -182,4 +182,4 @@ if exist "QGIS_client.cfg" (
 )
 
 rem "コマンドプロンプト終了"
-exit
+exit /b
