@@ -37,5 +37,7 @@ QGIS.CFG.BAT で設定
 　　https://github.com/yamamoto-ryuzo/GEO-search-plugin  
 ##### 印刷  
 　　https://github.com/yamamoto-ryuzo/yr-qgis-easyinstantprint-plugin  
+##### レイヤー管理（追加予定：日本語化依頼2022-08-28）  
+  https://github.com/xcaeag/MenuFromProject-Qgis-Plugin  
 #### ・補足事項  
 　.BATの改行コードをWindows用にするため　.gitattributes　を設置 
