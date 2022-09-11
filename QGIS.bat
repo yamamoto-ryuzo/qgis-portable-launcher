@@ -86,7 +86,7 @@ rem "=====モードセレクト"
 rem "c:クライアントモード　　ﾃﾞﾌｫﾙﾄ設定"
 rem "s:サーバーモード"
 rem "n:site=1 pigreco 本家（最新版）"
-rem "o:site=1 pigreco 本家（旧版）"
+rem "o:site=2 pigreco 本家（旧版）"
 rem "/t 1秒"
 rem "/D c ﾃﾞﾌｫﾙﾄ設定"
 choice /c csno /t 1 /D c /n
