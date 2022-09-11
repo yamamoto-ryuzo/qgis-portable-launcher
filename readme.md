@@ -4,17 +4,7 @@
 　32ビット最終版の対応  
   起動用BATのネットワークドライブへの対応（無理かも・・・）  
 　QGISファイルの解凍失敗に対する対応！（解凍終了後にフラグ用のファイルを設置？）  
-=======
-（ただいまLGWAN内で作業中）  
-　PCの状況によって動いたり動かなかったり結構いろいろ・・・  
-　設定を簡素化のため　pigreco 本家　のみとなる予定  
-　バージョンアップによりプロジェクトファイルが動かないことがあるので、最新バージョンと旧バージョンを切り替え可能とする予定。  
- 
-（32ビット対応）  
-　3.16と3.22の混在して利用してもいいことなしだったので、32ビットはさようならにしました。  
-　32ビットマシンは64ビットマシンへの　RDS - remoteApp　で対応が良いようです。  
->>>>>>> 13f7b14e049d1220bf8cbd0ddbb8963068a9a329
- 
+
 （現状）  
 　QGISポータブル版を私の趣味によりカスタマイズしたバージョン管理やインストールを含んだランチャー  
 　WindowsのDOS.BATです。  
@@ -30,21 +20,18 @@
 起動後，１秒位以内に下記キー押してください。  
 　c:クライアントモード　　ﾃﾞﾌｫﾙﾄ設定  
 　s:サーバーモード  
-　p:site=1 pigreco 本家　ﾃﾞﾌｫﾙﾄ設定  
-　k:site=2 kouapp　喜多さんのサイト  
-#### ・QGISポータブル版の入手先  
-QGIS.CFG.BAT で設定  
-　site = 1  
-　　https://github.com/pigreco/QGIS_portable_3x  
-　site = 2  
-　　http://kouapp.main.jp/ringyoqgis3/qgisportable/
+　n:site=1 pigreco 本家（最新版）  
+　o:site=2 pigreco 本家（旧版）
 #### ・統一環境としてコアプラグインに組み込み予定のプラグイン  
 ##### 検索  
 　　https://github.com/yamamoto-ryuzo/yr-qgis-searchlayers-plugin  
 　　https://github.com/yamamoto-ryuzo/GEO-search-plugin  
 ##### 印刷  
 　　https://github.com/yamamoto-ryuzo/yr-qgis-easyinstantprint-plugin  
+　　https://github.com/yamamoto-ryuzo/yr-qgis-portable-launcher-repository/raw/main/qgis-instantprint-plugin-master.zip  
 ##### レイヤー管理（追加予定：日本語化依頼2022-08-28）  
 　　https://github.com/xcaeag/MenuFromProject-Qgis-Plugin  
+##### 画面
+　　https://raw.githubusercontent.com/yamamoto-ryuzo/yr-qgis-portable-launcher-repository/main/zoomview-1.1.1.zip  
 #### ・補足事項  
 　.BATの改行コードをWindows用にするため　.gitattributes　を設置 
