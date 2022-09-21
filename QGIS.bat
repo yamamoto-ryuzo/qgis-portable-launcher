@@ -205,7 +205,7 @@ if not exist %QGIS_delivery%\qgisconfig\system_ver (
 rem "profiles等のqgisconfigを配布"
 rem ２つのファイルを比較して更新処理
 fc /L %QGIS_delivery%\qgisconfig\system_ver\qgisconfig_ver.txt %USERPROFILE%\Documents\qgisconfig\system_ver\qgisconfig_ver.txt
-rem "遅延展開する変数の記述方法を「%変数名%」から「!変数名!」に変更"
+rem "遅延環境変数の記述方法を「%変数名%」から「!変数名!」に変更"
 if !errorlevel!==0 (
     rem "ファイル内容が等しい"
 ) else (
@@ -223,7 +223,7 @@ if !errorlevel!==0 (
 rem "コアプラグイン　インストール済みかどうかを確認"
 rem "追加コアプラグインのインストール"
 rem "tokens=1,2 を使って、スペース区切りの文字列"
-rem "遅延展開する変数の記述方法を「%変数名%」から「!変数名!」に変更"
+rem "遅延環境変数の記述方法を「%変数名%」から「!変数名!」に変更"
 for /f "tokens=1,2,3" %%a in (QGIS_plugin.txt) do (
     rem "httpアドレス"
     set QGIS_plugin_http=%%a
@@ -240,7 +240,7 @@ for /f "tokens=1,2,3" %%a in (QGIS_plugin.txt) do (
     ) else (
         rem "バージョンチェック"
         fc /L system_ver\!QGIS_plugin_folder!_ver.txt %USERPROFILE%\Documents\qgisconfig\system_ver\!QGIS_plugin_folder!_ver.txt
-            if !errorlevel!==0 (
+            if %errorlevel%==0 (
             rem "ファイル内容が等しい"
             rem msg %username% !QGIS_plugin_folder!バージョンアップはありません
         ) else (
