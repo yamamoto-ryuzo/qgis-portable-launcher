@@ -87,6 +87,7 @@ for /f %%a in (QGIS_site.txt) do (
 rem "ダウンロードサイト"
 rem -----------------------------------------------------
 rem "デフォルト　site=1 pigreco 本家（最新版）"
+rem "https://github.com/pigreco/QGIS_portable_3x"
 if %site% == 2 (
   rem "site=2 pigreco 本家（旧版）"
   set QGIS_ver=3.16.161
@@ -98,13 +99,14 @@ if %site% == 2 (
 ) else (
   rem "デフォルト"
   rem "site=1 pigreco 本家（最新版）"
-  set QGIS_ver=3.22.10
-  set QGIS_http=https://drive.google.com/file/d/1-g_GH-JqsPqPRd-7mpn0NxmbF_nSy5z5/view
-  set QGIS_File=OSGeo4W64_3.22.10-ltr_grass-saga.7z
+  set QGIS_ver=3.22.11
+  set QGIS_http=https://drive.google.com/file/d/1-i4mYs2F0HxhzRdHVKRW6ro-YhjadlYj/view?usp=sharing
+  set QGIS_File=OSGeo4W64_3.22.11-ltr_grass-saga.7z
   rem "解凍フォルダ"
   set QGIS_extract_folder=OSGeo4W64
   set QGIS_core_plugin_folder=qgis\apps\qgis-ltr\python\plugins
 )
+
 exit /b
 
 :Start_download
@@ -265,9 +267,9 @@ cd %USERPROFILE%\Desktop
 rem "QGISのBATファイルに「cd /d %~dp0」がありネットワークドライブからの起動は出来ないので注意"
 set OSGEO4W_ROOT=%QGIS_Install%\%QGIS_Folder%
 path %PATH%;%OSGEO4W_ROOT%\apps\qgis-ltr\bin;%OSGEO4W_ROOT%\apps;%OSGEO4W_ROOT%\bin;%OSGEO4W_ROOT%\apps\grass
-rem  "powershell -command "%OSGEO4W_ROOT%\qgis\bin\qgis-ltr.bat --profiles-path %QGIS_Install%\qgisconfig"""
-powershell -command "%OSGEO4W_ROOT%\qgis\bin\qgis-ltr.bat --profiles-path %USERPROFILE%\Documents\qgisconfig" 
-rem start %OSGEO4W_ROOT%\qgis\bin\qgis-ltr.bat --profiles-path %QGIS_Install%\qgisconfig
+rem powershell -command "%OSGEO4W_ROOT%\qgis\bin\qgis-ltr.bat --profiles-path %QGIS_Install%\qgisconfig"""
+rem powershell -command "%OSGEO4W_ROOT%\qgis\bin\qgis-ltr.bat --profiles-path %USERPROFILE%\Documents\qgisconfig" 
+start %OSGEO4W_ROOT%\qgis\bin\qgis-ltr.bat --profiles-path %QGIS_Install%\qgisconfig
 
 rem "コマンドプロンプト終了"
 exit /b
