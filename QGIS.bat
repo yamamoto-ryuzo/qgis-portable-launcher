@@ -206,7 +206,7 @@ rem "profiles等のqgisconfigを配布"
 rem ２つのファイルを比較して更新処理
 fc /L %QGIS_delivery%\qgisconfig\system_ver\qgisconfig_ver.txt %USERPROFILE%\Documents\qgisconfig\system_ver\qgisconfig_ver.txt
 rem "遅延環境変数の記述方法を「%変数名%」から「!変数名!」に変更"
-if !errorlevel!==0 (
+if %errorlevel%==0 (
     rem "ファイル内容が等しい"
 ) else (
     rem "ファイル内容が違う、ファイルがない等"
