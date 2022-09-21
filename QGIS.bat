@@ -140,6 +140,15 @@ if exist "QGIS_delivery_server.cfg" (
             )
         )
 
+        rem "ダウンロード状態のファイルは、配信用ファイルに変更"
+        if exist %QGIS_delivery%\%QGIS_File% (
+            rem "QGISダウンロードファイルを配信用QGISフォルダに名前変更"
+            rename %QGIS_delivery%\%QGIS_File% %QGIS_Folder%.7z
+            rem "7z内のフォルダ名変更"
+            rem "*****************************　動作怪しいので再確認　***********************************"
+            call 7zr.exe rn %QGIS_delivery%\%QGIS_Folder%.7z %QGIS_extract_folder% %QGIS_Folder%
+        )
+
         rem ダウンロードが正しく終了したかの確認
         if not exist %QGIS_delivery%\%QGIS_Folder%.7z (
             powershell -Command "Add-Type -AssemblyName System.Windows.Forms;[System.Windows.Forms.MessageBox]::Show(\"正しくダウンロード及びファイルの移動ができませんでした。`n一度終了します。`n再起動してください。\", 'ダウンロード', 'OK', 'Asterisk')"
@@ -160,18 +169,6 @@ if exist "QGIS_delivery_server.cfg" (
             )
         )
     )
-)
-
-rem "=========================================================================================="
-rem "====================QGISダウンロードファイルを配信用QGISフォルダに名前変更===================="
-rem "=========================================================================================="
-rem "ダウンロード状態のファイルは、配信用ファイルに変更"
-if exist %QGIS_delivery%\%QGIS_File% (
-    rem "QGISダウンロードファイルを配信用QGISフォルダに名前変更"
-    rename %QGIS_delivery%\%QGIS_File% %QGIS_Folder%.7z
-    rem "7z内のフォルダ名変更"
-    rem "*****************************　動作怪しいので再確認　***********************************"
-    call 7zr.exe rn %QGIS_delivery%\%QGIS_Folder%.7z %QGIS_extract_folder% %QGIS_Folder%
 )
 
 rem "=============================================================="
