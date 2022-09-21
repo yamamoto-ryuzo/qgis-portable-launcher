@@ -1,3 +1,8 @@
-QGIS_custum_*
-QGIS_test*
+<<<<<<< HEAD
+QGIS_custum_*.ini
+QGIS_test*.*
 開発状況
+=======
+QGIS_custum_*.ini
+QGIS_test*.*
+>>>>>>> 97ad93be62e96a243ba07afbbcdb7dc45d7423d3
