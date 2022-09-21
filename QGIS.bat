@@ -268,8 +268,8 @@ rem "QGISのBATファイルに「cd /d %~dp0」がありネットワークドラ
 set OSGEO4W_ROOT=%QGIS_Install%\%QGIS_Folder%
 path %PATH%;%OSGEO4W_ROOT%\apps\qgis-ltr\bin;%OSGEO4W_ROOT%\apps;%OSGEO4W_ROOT%\bin;%OSGEO4W_ROOT%\apps\grass
 rem powershell -command "%OSGEO4W_ROOT%\qgis\bin\qgis-ltr.bat --profiles-path %QGIS_Install%\qgisconfig"""
-rem powershell -command "%OSGEO4W_ROOT%\qgis\bin\qgis-ltr.bat --profiles-path %USERPROFILE%\Documents\qgisconfig" 
-start %OSGEO4W_ROOT%\qgis\bin\qgis-ltr.bat --profiles-path %QGIS_Install%\qgisconfig
+powershell -command "%OSGEO4W_ROOT%\qgis\bin\qgis-ltr.bat --profiles-path %USERPROFILE%\Documents\qgisconfig" 
+rem start %OSGEO4W_ROOT%\qgis\bin\qgis-ltr.bat --profiles-path %QGIS_Install%\qgisconfig
 
 rem "コマンドプロンプト終了"
 exit /b
