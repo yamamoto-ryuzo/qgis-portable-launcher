@@ -106,9 +106,9 @@ if %site% == 2 (
 ) else (
   rem "デフォルト"
   rem "site=1 pigreco 本家（最新版）"
-  set QGIS_ver=3.22.11
-  set QGIS_http=https://drive.google.com/file/d/1-i4mYs2F0HxhzRdHVKRW6ro-YhjadlYj/view?usp=sharing
-  set QGIS_File=OSGeo4W64_3.22.11-ltr_grass-saga.7z
+  set QGIS_ver=3.22.12
+  set QGIS_http=https://drive.google.com/open?id=1-pRs-0Mw-NiBNwGpeFYOjcJjP0vplT5C&authuser=0
+  set QGIS_File=OSGeo4W64_3.22.12-ltr_grass-saga.7z
   rem "解凍フォルダ"
   set QGIS_extract_folder=OSGeo4W64
   set QGIS_core_plugin_folder=qgis\apps\qgis-ltr\python\plugins

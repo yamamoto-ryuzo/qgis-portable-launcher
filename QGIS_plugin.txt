@@ -1,4 +1,4 @@
-https://github.com/yamamoto-ryuzo/GEO-search-plugin/releases/download/2.0/ GEO-search-plugin-main.zip GEO-search-plugin-main
+https://github.com/yamamoto-ryuzo/GEO-search-plugin/releases/download/2.1/ GEO-search-plugin-main.zip GEO-search-plugin-main
 https://github.com/yamamoto-ryuzo/yr-qgis-searchlayers-plugin/releases/download/3.0.11%2B/ yr-qgis-searchlayers-plugin-master.zip yr-qgis-searchlayers-plugin-master
 https://github.com/yamamoto-ryuzo/yr-qgis-easyinstantprint-plugin/releases/download/2.4%2B/ yr-qgis-easyinstantprint-plugin-master.zip yr-qgis-easyinstantprint-plugin-master
 https://raw.githubusercontent.com/yamamoto-ryuzo/yr-qgis-portable-launcher-repository/main/ SpreadsheetLayers-2.0.1.zip SpreadsheetLayers
