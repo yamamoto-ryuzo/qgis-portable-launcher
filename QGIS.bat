@@ -1,3 +1,4 @@
+rem 引数　%1 QGIS_custum.ini　の代替えファイルを指定
 rem @echo off
 chcp 65001
 rem "↑　文字コードの指定　UTF-8＝65001"
@@ -22,8 +23,14 @@ rem "カレントフォルダがネットワークフォルダに非対応なの
 rem "==========環境変数の設定=========="
 rem "初期設定"
 
-rem "初期変数の読込"
-for /f "tokens=1,2 delims==" %%a in (QGIS_custum.ini) do (
+"初期変数の読込"
+if "%1%"=="" (
+  set QGIS_ini=QGIS_custum.ini
+) else (
+  set QGIS_ini=%1
+)
+
+for /f "tokens=1,2 delims==" %%a in (%QGIS_ini%) do (
   set %%a=%%b
   rem "なぜか最初の１行は；をコメント認識してくれないので注意！"
   rem msg %username%  %%a,%%b
@@ -99,9 +106,9 @@ if %site% == 2 (
 ) else (
   rem "デフォルト"
   rem "site=1 pigreco 本家（最新版）"
-  set QGIS_ver=3.22.11
-  set QGIS_http=https://drive.google.com/file/d/1-i4mYs2F0HxhzRdHVKRW6ro-YhjadlYj/view?usp=sharing
-  set QGIS_File=OSGeo4W64_3.22.11-ltr_grass-saga.7z
+  set QGIS_ver=3.22.13
+  set QGIS_http=https://drive.google.com/file/d/1-tdYRNtnFgWFsc2RNju5O1rnM6vOsXP7/view
+  set QGIS_File=OSGeo4W64_3.22.13-ltr_grass-saga.7z
   rem "解凍フォルダ"
   set QGIS_extract_folder=OSGeo4W64
   set QGIS_core_plugin_folder=qgis\apps\qgis-ltr\python\plugins
