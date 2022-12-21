@@ -1,0 +1,15 @@
+numh2z(moji)
+numh2z()
+zen2han
+numh2z
+numh2z()
+numh2z('f')
+numh2z('f')
+numh2z('')
+zen2han
+zen2han()
+zen2han('','','')
+zen2han('fasdf56')
+exec(open('C:/Users/ryu/AppData/Local/Temp/tmpryrq8t6a.py'.encode('utf-8')).read())
+zen2han('lkjkjl')
+exec(open('C:/Users/ryu/AppData/Local/Temp/tmp4bhqw3aj.py'.encode('utf-8')).read())
