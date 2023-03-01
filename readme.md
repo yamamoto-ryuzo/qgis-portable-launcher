@@ -1,7 +1,6 @@
-### QGISランチャー
+### QGISランチャー(64ビットのみ対応)  
 <<<<<<< HEAD
 （今後の予定）  
-　32ビット最終版の対応  
   起動用BATのネットワークドライブへの対応（無理かも・・・）  
 　QGISファイルの解凍失敗に対する対応！（解凍終了後にフラグ用のファイルを設置？）  
 
@@ -21,7 +20,8 @@
 　c:クライアントモード　　ﾃﾞﾌｫﾙﾄ設定  
 　s:サーバーモード  
 　n:site=1 pigreco 本家（最新版）  
-　o:site=2 pigreco 本家（旧版）
+　o:site=2 pigreco 本家（旧版）  
+　https://github.com/pigreco/QGIS_portable_3x  
 #### ・統一環境としてコアプラグインに組み込み予定のプラグイン  
 ##### 検索  
 　　https://github.com/yamamoto-ryuzo/yr-qgis-searchlayers-plugin  
