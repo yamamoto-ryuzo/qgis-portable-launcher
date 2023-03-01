@@ -5,3 +5,4 @@ https://raw.githubusercontent.com/yamamoto-ryuzo/yr-qgis-portable-launcher-repos
 https://github.com/xcaeag/MenuFromProject-Qgis-Plugin/releases/download/v2.0.4/ menu_from_project.v2.0.4.zip menu_from_project
 https://github.com/yamamoto-ryuzo/yr-qgis-portable-launcher-repository/raw/main/ qgis-instantprint-plugin-master.zip qgis-instantprint-plugin-master
 https://raw.githubusercontent.com/yamamoto-ryuzo/yr-qgis-portable-launcher-repository/main/ zoomview-1.1.1.zip zoomview
+https://raw.githubusercontent.com/ easyprint-feature-qgis3.zip easyprint-feature-qgis3

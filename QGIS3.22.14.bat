@@ -1,4 +1,4 @@
-﻿rem 引数　%1 QGIS_custum.ini　の代替えファイルを指定
+rem 引数　%1 QGIS_custum.ini　の代替えファイルを指定
 rem @echo off
 chcp 65001
 rem "↑　文字コードの指定　UTF-8＝65001"
@@ -106,9 +106,9 @@ if %site% == 2 (
 ) else (
   rem "デフォルト"
   rem "site=1 pigreco 本家（最新版）"
-  set QGIS_ver=3.22.16
-  set QGIS_http=https://drive.google.com/file/d/103EBACERFZXL4IoNg3d0Q0FBaCu5sAcN/view
-  set QGIS_File=OSGeo4W64_3.22.16-ltr_grass-saga.7z
+  set QGIS_ver=3.22.14
+  set QGIS_http=https://drive.google.com/file/d/1-zzvZ5PjkBV4cTi1xXVYAMvfrfP8GeNC/view
+  set QGIS_File=OSGeo4W64_3.22.14-ltr_grass-saga.7z
   rem "解凍フォルダ"
   set QGIS_extract_folder=OSGeo4W64
   set QGIS_core_plugin_folder=qgis\apps\qgis-ltr\python\plugins
@@ -210,8 +210,8 @@ if not exist %QGIS_delivery%\qgisconfig\system_ver (
     rmdir /s /q %QGIS_delivery%\qgisconfig\system_ver
     call powershell -command "copy-item system_ver %QGIS_delivery%\qgisconfig\system_ver -Recurse -force
 )
-
-rem "==========profiles等のqgisconfigを配布=========="
+    
+rem "profiles等のqgisconfigを配布"
 rem ２つのファイルを比較して更新処理
 fc /L %QGIS_delivery%\qgisconfig\system_ver\qgisconfig_ver.txt %USERPROFILE%\Documents\qgisconfig\system_ver\qgisconfig_ver.txt
 rem "遅延環境変数の記述方法を「%変数名%」から「!変数名!」に変更"
@@ -229,15 +229,10 @@ if %errorlevel%==0 (
     call powershell -command "copy-item %QGIS_delivery%\qgisconfig %USERPROFILE%\Documents\qgisconfig -Recurse -force
 )
 
-rem "==========プラグインを配布=========="
-rem "プラグインが更新しているかどうかのフラグ"
-set plugins_flag=0
-
 rem "プラグイン　インストール済みかどうかを確認"
 rem "追加プラグインのインストール"
 rem "tokens=1,2 を使って、スペース区切りの文字列"
 rem "遅延環境変数の記述方法を「%変数名%」から「!変数名!」に変更"
-
 for /f "tokens=1,2,3" %%a in (QGIS_plugin.txt) do (
     rem "httpアドレス"
     set QGIS_plugin_http=%%a
@@ -246,14 +241,14 @@ for /f "tokens=1,2,3" %%a in (QGIS_plugin.txt) do (
     rem "解凍後のフォルダ名"
     set QGIS_plugin_folder=%%c
     rem "実際にインストールされているかどうかのチェック"
+    rem "コアプラグイン自体のインストール先：QGIS_Install%\%QGIS_Folder%\%QGIS_core_plugin_folder%\!QGIS_plugin_folder!"
     rem "とりあえずインストールのユーザープロファイルは default　として処理"
+    rem "コアプラグインでなくなったことにより，プロファイルごとにインストール必要"
     if not exist %USERPROFILE%\Documents\qgisconfig\profiles\default\python\plugins\!QGIS_plugin_folder! (
         rem "=====Zipファイルの解凍 PowerShellコマンド"
         rem "Expand-Archive -Path ＜ZIPファイル＞　＜展開先フォルダ＞"
         echo プラグインのインストール：!QGIS_plugin_http!!QGIS_plugin_File!
-        rem "プラグイン保存先をランチャー内に変更"
-        rem powershell Expand-Archive -Path  %QGIS_delivery%\plugin\!QGIS_plugin_File! %USERPROFILE%\Documents\qgisconfig\profiles\default\python\plugins
-        powershell Expand-Archive -Path  %~dp0plugin\!QGIS_plugin_File! %USERPROFILE%\Documents\qgisconfig\profiles\default\python\plugins
+        powershell Expand-Archive -Path  %QGIS_delivery%\plugin\!QGIS_plugin_File! %USERPROFILE%\Documents\qgisconfig\profiles\default\python\plugins
     ) else (
         rem "バージョンチェック"
         fc /L system_ver\!QGIS_plugin_folder!_ver.txt %USERPROFILE%\Documents\qgisconfig\system_ver\!QGIS_plugin_folder!_ver.txt
@@ -261,7 +256,6 @@ for /f "tokens=1,2,3" %%a in (QGIS_plugin.txt) do (
             rem "ファイル内容が等しい"
             rem msg %username% !QGIS_plugin_folder!バージョンアップはありません
         ) else (
-	    set plugins_flag=1
             rem "ファイル内容が違う、ファイルがない等"
             rem "コマンドプロンプトはネットワークフォルダ非対応のためpowershellで実行"
             rem "フォルダ以下すべて -Recurse"
@@ -280,13 +274,7 @@ for /f "tokens=1,2,3" %%a in (QGIS_plugin.txt) do (
     rem )
  )
 
-rem "==========プラグインのカスタマイズ=========="
-rem "プラグイン更新有の場合は、必要なカスタムファイルの上書き"
-rem if plugins_flag==1(
-    xcopy %~dp0plugin\上書きファイル\qgisconfig %USERPROFILE%\Documents\qgisconfig /Y /E
-rem )
-
-rem "==========QGISの起動=========="
+rem "QGISの起動"
 rem "起動用フォルダに移動"
 rem "cd %QGIS_Install%\%QGIS_Folder%"
 cd %USERPROFILE%\Desktop
