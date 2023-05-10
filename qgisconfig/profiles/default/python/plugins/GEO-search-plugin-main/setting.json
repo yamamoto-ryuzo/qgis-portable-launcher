@@ -1,0 +1,84 @@
+    {
+      "Title": "住所（番地）",
+      "Layer": {
+        "LayerType": "Name",
+        "Name": "地籍",
+        "Encoding": "cp932"
+      },
+      "SearchField": {
+        "FieldType": "Text",
+        "ViewName": "住所",
+        "Field": "住所"
+      },
+      "ViewFields": ["住所","kanjname","kananame","地目（登記）","地目（現況）"]
+    },
+    {
+      "Title": "所有者（漢字）",
+      "Layer": {
+        "LayerType": "Name",
+        "Name": "地籍",
+        "Encoding": "cp932"
+      },
+      "SearchField": {
+        "FieldType": "Text",
+        "ViewName": "所有者",
+        "Field": "kanjname"
+      },
+      "ViewFields": ["住所","kanjname","kananame","地目（登記）","地目（現況）"]
+    },
+    {
+      "Title": "所有者（ｶﾅ）",
+      "Layer": {
+        "LayerType": "Name",
+        "Name": "地籍",
+        "Encoding": "cp932"
+      },
+      "SearchField": {
+        "FieldType": "Text",
+        "ViewName": "所有者（半角ｶﾅ）",
+        "Field": "kananame"
+      },
+      "ViewFields": ["住所","kanjname","kananame","地目（登記）","地目（現況）"]
+    },
+    {
+      "Title": "路線検索",
+      "Layer": {
+        "LayerType": "Name",
+        "Name": "路線認定（路線網図）",
+        "Encoding": "cp932"
+      },
+      "SearchField": {
+        "FieldType": "Text",
+        "ViewName": "路線番号",
+        "Field": "変更後路線番号"
+      },
+      "ViewFields": ["変更後路線番号","路線名称","認定年月日","供用開始年月日","廃止年月日","取得年月日","消去年月日"]
+    },
+    {
+      "Title": "認定外路線検索",
+      "Layer": {
+        "LayerType": "Name",
+        "Name": "路線認定適用外（路線網図）",
+        "Encoding": "cp932"
+      },
+      "SearchField": {
+        "FieldType": "Text",
+        "ViewName": "路線番号",
+        "Field": "路線番号"
+      },
+      "ViewFields": ["路線番号","路線名称","供用・未供用","取得年月日","消去年月日"]
+    },
+    {
+      "Title": "河川・水路",
+      "Layer": {
+        "LayerType": "Name",
+        "Name": "河川・水路管理網図",
+        "Encoding": "cp932"
+      },
+      "SearchField": {
+        "FieldType": "Text",
+        "ViewName": "水路番号",
+        "Field": "水路番号"
+      },
+      "ViewFields": ["水路番号","コード表_河川・水路番号_種類","コード表_河川・水路番号_管理者"]
+    }

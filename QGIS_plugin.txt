@@ -6,3 +6,4 @@ https://github.com/xcaeag/MenuFromProject-Qgis-Plugin/releases/download/v2.0.4/ 
 https://github.com/yamamoto-ryuzo/yr-qgis-portable-launcher-repository/raw/main/ qgis-instantprint-plugin-master.zip qgis-instantprint-plugin-master
 https://raw.githubusercontent.com/yamamoto-ryuzo/yr-qgis-portable-launcher-repository/main/ zoomview-1.1.1.zip zoomview
 https://raw.githubusercontent.com/ easyprint-feature-qgis3.zip easyprint-feature-qgis3
+https://plugins.qgis.org/plugins/StreetView/version/3.2/download/ StreetView-3.2.zip StreetView
