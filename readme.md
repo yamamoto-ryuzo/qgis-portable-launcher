@@ -20,8 +20,6 @@
 起動後，１秒位以内に下記キー押してください。  
 　c:クライアントモード　　ﾃﾞﾌｫﾙﾄ設定  
 　s:サーバーモード  
-　n:site=1 pigreco 本家（最新版）  
-　o:site=2 pigreco 本家（旧版）
 #### ・統一環境としてコアプラグインに組み込み予定のプラグイン  
 ##### 検索  
 　　https://github.com/yamamoto-ryuzo/yr-qgis-searchlayers-plugin  
