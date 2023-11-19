@@ -1,0 +1,51 @@
+[general]
+name=Lizmap
+qgisMinimumVersion=3.10
+qgisMaximumVersion=3.99
+author=3Liz
+email=info@3liz.com
+description=Publish and share your QGIS maps on the Web via Lizmap Web Client, by 3liz.com
+about=With a few clicks, it's possible to publish and share your QGIS projects on the Web via Lizmap Web Client, by 3liz.com. QGIS Server is used in the background so all the symbology is kept. The edition forms in QGIS are also available. Demo : https://demo.lizmap.com and documentation : https://docs.lizmap.com and hosting solutions https://lizmap.com
+category=Web
+tags=online,server,web,webgis,webservice,webmapping,mobile,publication,wms,wfs,wps,internet,cloud
+
+homepage=https://docs.lizmap.com
+tracker=https://github.com/3liz/lizmap-plugin/issues
+repository=https://github.com/3liz/lizmap-plugin
+
+# Done automatically by qgis-plugin-ci
+version=3.18.1
+commitNumber=1
+commitSha1=9f7010e55d928f46325ae69b03f03482a03ae2f5
+dateTime=2023-10-27T12:07:08Z
+changelog=
+ Version 3.18.1:
+ * Warn the user if the field is coming from a join, or it is a virtual one when setting a filter form
+ * Better warning for Stamen tiles
+
+ Version 3.18.0:
+ * Disabling Stamen base-maps checkbox, see https://stamen.com/faq
+ * Fix an error on Windows when the path of a layer is on a different drive
+ * Improve links to documentation
+ * Add a new panel for some settings and tools coming soon
+ * Add an SSL connection checker for PostgreSQL layers
+ * Add a link to the project folder if the thumbnail is not found
+ * Review help about `@lizmap_user_groups`
+ * Various minor fixes :
+   * Py-QGIS-Server version
+   * new layouts configuration for LWC 3.7
+
+ Version 3.17.1:
+ * Add links to the corresponding blog post announcing a new release, if available
+ * Support the "text widget" from QGIS 3.30 in the tooltip, contribution from @ghtmtt
+ * Add the possibility to open the online documentation for the current panel in the plugin
+ * Do not generate the HTML for a field if the field is excluded from WMS
+ * Add an option to show empty rows in the HTML map tip to generate another QGIS expression
+
+
+# End of qgis-plugin-ci
+
+icon=resources/icons/icon.png
+experimental=False
+deprecated=False
+server=False

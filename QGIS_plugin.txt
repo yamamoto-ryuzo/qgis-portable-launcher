@@ -1,9 +1,14 @@
 https://github.com/yamamoto-ryuzo/GEO-search-plugin/releases/download/2.1/ GEO-search-plugin-main.zip GEO-search-plugin-main
-https://github.com/yamamoto-ryuzo/yr-qgis-searchlayers-plugin/releases/download/3.0.11%2B/ yr-qgis-searchlayers-plugin-master.zip yr-qgis-searchlayers-plugin-master
-https://github.com/yamamoto-ryuzo/yr-qgis-easyinstantprint-plugin/releases/download/2.4%2B/ yr-qgis-easyinstantprint-plugin-master.zip yr-qgis-easyinstantprint-plugin-master
+https://github.com/NationalSecurityAgency/qgis-searchlayers-plugin/releases/download/3.0.14/ searchlayers-3.0.14.zip searchlayers
 https://raw.githubusercontent.com/yamamoto-ryuzo/yr-qgis-portable-launcher-repository/main/ SpreadsheetLayers-2.0.1.zip SpreadsheetLayers
 https://github.com/xcaeag/MenuFromProject-Qgis-Plugin/releases/download/v2.0.4/ menu_from_project.v2.0.4.zip menu_from_project
 https://github.com/yamamoto-ryuzo/yr-qgis-portable-launcher-repository/raw/main/ qgis-instantprint-plugin-master.zip qgis-instantprint-plugin-master
 https://raw.githubusercontent.com/yamamoto-ryuzo/yr-qgis-portable-launcher-repository/main/ zoomview-1.1.1.zip zoomview
 https://raw.githubusercontent.com/ easyprint-feature-qgis3.zip easyprint-feature-qgis3
+https://plugins.qgis.org/plugins/StreetView/version/3.2/download/ StreetView-3.2.zip StreetView
+Null EasyAttributeFilter-main.zip EasyAttributeFilter-main
+Null meshprint-main.zip meshprint-main
+NUll SearchZmap-main.zip SearchZmap-main
+https://github.com/MIERUNE/qgis-mojxml-plugin/releases/download/v0.5.0/ qgis-mojxml-plugin-v0.5.0.zip mojxml_plugin
+https://github.com/3liz/lizmap-plugin/releases/download/3.18.1/ lizmap.3.18.1.zip lizmap
 https://plugins.qgis.org/plugins/StreetView/version/3.2/download/ StreetView-3.2.zip StreetView

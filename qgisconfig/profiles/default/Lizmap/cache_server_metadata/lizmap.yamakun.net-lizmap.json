@@ -1,0 +1,142 @@
+{
+    "info": {
+        "version": "3.6.5",
+        "date": "2023-08-08"
+    },
+    "dependencies": {
+        "jelix": {
+            "version": "1.8.2",
+            "minversion": "1.8.2",
+            "maxversion": "1.8.2"
+        }
+    },
+    "api": {
+        "dataviz": {
+            "version": "1.0.0"
+        }
+    },
+    "repositories": {
+        "lizmapcloud": {
+            "label": "Lizmapcloud",
+            "path": "/var/www/lizmap/lizmapcloud/",
+            "authorized_groups": [
+                "__anonymous",
+                "admins",
+                "users"
+            ],
+            "editing_authorized_groups": [
+                "admins"
+            ],
+            "projects": {
+                "Styles4DMinQGIS": {
+                    "title": "Styles4DMinQGIS"
+                },
+                "multi_atlas": {
+                    "title": "Tram in Montpellier"
+                },
+                "lizmaptest": {
+                    "title": "lizmaptest"
+                }
+            }
+        },
+        "opendatabridge": {
+            "label": "OpenDataBridge",
+            "path": "/var/www/html/OpenDataBridge/",
+            "authorized_groups": [
+                "__anonymous",
+                "publishers",
+                "admins",
+                "users"
+            ],
+            "editing_authorized_groups": [
+                "__anonymous",
+                "publishers",
+                "admins",
+                "users"
+            ],
+            "projects": {
+                "kosodate": {
+                    "title": "\u307f\u3093\u306a\u3067\u80b2\u696d\u3053\u305d\u3060\u3066\u3063\u304f\u3059"
+                },
+                "dx-junkyard": {
+                    "title": "dx-junkyard"
+                }
+            }
+        }
+    },
+    "acl": {
+        "groups": {
+            "publishers": {
+                "label": "Publishers"
+            },
+            "admins": {
+                "label": "admins"
+            },
+            "users": {
+                "label": "users"
+            }
+        }
+    },
+    "qgis_server_info": {
+        "metadata": {
+            "commit_id": "b02458a196",
+            "name": "Firenze",
+            "py_qgis_server": false,
+            "py_qgis_server_version": "not used",
+            "tag": "final-3_28_11",
+            "version": "3.28.11",
+            "version_int": 32811
+        },
+        "plugins": {
+            "DataPlotly": {
+                "commitNumber": "1",
+                "commitSha1": "b6b0fe7d143f963af140dfb44ac564f8d214a254",
+                "dateTime": "2023-06-27T14:25:34Z",
+                "name": "Data Plotly",
+                "repository": "https://github.com/ghtmtt/DataPlotly",
+                "version": "4.0.3"
+            },
+            "atlasprint": {
+                "commitNumber": "1",
+                "commitSha1": "7b8a3ea12775bcdcdac0b0f8432bd64adb3dc528",
+                "dateTime": "2022-10-19T08:10:14Z",
+                "name": "atlasprint",
+                "repository": "https://github.com/3liz/qgis-atlasprint",
+                "version": "3.3.2"
+            },
+            "lizmap_server": {
+                "commitNumber": "1",
+                "commitSha1": "ce7dcc974de6c4bf32a8a9f11cd2286887b6cc24",
+                "dateTime": "2023-07-25T13:10:37Z",
+                "name": "Lizmap server",
+                "repository": "https://github.com/3liz/qgis-lizmap-server-plugin",
+                "version": "2.8.0"
+            },
+            "wfsOutputExtension": {
+                "commitNumber": "1",
+                "commitSha1": "fa816dd744d3d7e4c0546242946b27229c638f98",
+                "dateTime": "2023-08-04T14:12:18Z",
+                "name": "wfsOutputExtension",
+                "repository": "https://github.com/3liz/qgis-wfsOutputExtension",
+                "version": "1.8.0"
+            }
+        },
+        "py_qgis_server": {
+            "build_id": null,
+            "commit_id": null,
+            "found": false,
+            "stable": false,
+            "stable_release": false,
+            "version": "not used"
+        },
+        "services": [
+            "WMS",
+            "WFS",
+            "WCS",
+            "WMTS",
+            "ATLAS",
+            "EXPRESSION",
+            "LIZMAP"
+        ]
+    }
+}

@@ -1,5 +1,6 @@
     {
       "Title": "住所（番地）",
+      "group": "マルコポーロ",   
       "Layer": {
         "LayerType": "Name",
         "Name": "地籍",
@@ -14,6 +15,7 @@
     },
     {
       "Title": "所有者（漢字）",
+      "group": "マルコポーロ",  
       "Layer": {
         "LayerType": "Name",
         "Name": "地籍",
@@ -28,6 +30,7 @@
     },
     {
       "Title": "所有者（ｶﾅ）",
+      "group": "マルコポーロ",  
       "Layer": {
         "LayerType": "Name",
         "Name": "地籍",
@@ -42,6 +45,7 @@
     },
     {
       "Title": "路線検索",
+      "group": "道路台帳",  
       "Layer": {
         "LayerType": "Name",
         "Name": "路線認定（路線網図）",
@@ -55,21 +59,23 @@
       "ViewFields": ["変更後路線番号","路線名称","認定年月日","供用開始年月日","廃止年月日","取得年月日","消去年月日"]
     },
     {
-      "Title": "認定外路線検索",
+      "Title": "県道・国道",
+      "group": "道路台帳", 
       "Layer": {
         "LayerType": "Name",
-        "Name": "路線認定適用外（路線網図）",
+        "Name": "県道・国道網図",
         "Encoding": "cp932"
       },
       "SearchField": {
         "FieldType": "Text",
-        "ViewName": "路線番号",
-        "Field": "路線番号"
+        "ViewName": "名称",
+        "Field": "n01_002"
       },
-      "ViewFields": ["路線番号","路線名称","供用・未供用","取得年月日","消去年月日"]
+      "ViewFields": ["n01_002","概算延長"]
     },
     {
       "Title": "河川・水路",
+      "group": "河川・水路台帳",  
       "Layer": {
         "LayerType": "Name",
         "Name": "河川・水路管理網図",
@@ -81,4 +87,19 @@
         "Field": "水路番号"
       },
       "ViewFields": ["水路番号","コード表_河川・水路番号_種類","コード表_河川・水路番号_管理者"]
+    },
+    {
+      "Title": "要望",
+      "group": "土木担当関連",  
+      "Layer": {
+        "LayerType": "Name",
+        "Name": "土木担当要望",
+        "Encoding": "cp932"
+      },
+      "SearchField": {
+        "FieldType": "Text",
+        "ViewName": "要望番号",
+        "Field": "要望番号"
+      },
+      "ViewFields": ["要望番号","要望完了","工事種別","摘要","土木担当区域_氏名"]
     }
