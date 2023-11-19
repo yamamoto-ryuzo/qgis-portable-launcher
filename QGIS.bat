@@ -40,8 +40,6 @@ for /f "tokens=1,2 delims==" %%a in (%QGIS_ini%) do (
 rem "=====モードセレクト"
 rem "c:クライアントモード　　ﾃﾞﾌｫﾙﾄ設定"
 rem "s:サーバーモード"
-rem "n:site=1 pigreco 本家（最新版）"
-rem "o:site=2 pigreco 本家（旧版）"
 rem "/t 1秒"
 rem "/D c ﾃﾞﾌｫﾙﾄ設定"
 choice /c csno /t 1 /D c /n
@@ -54,16 +52,6 @@ if %errorlevel% equ 1 (
     rem "配信用環境設定構築時"
     msg %username% サーバーモードで動作します。 
     goto :server_mode
-) else if  %errorlevel% equ 3 (
-    rem site=1　を選択
-    echo 1 > QGIS_site.txt
-    msg %username% QGISポータブル版をpigreco（最新版）に設定しました。
-    goto :client_mode
-) else if  %errorlevel% equ 4 (
-    rem site=2　を選択
-    echo 2 > QGIS_site.txt
-    msg %username% QGISポータブル版をpigreco（旧版）に設定しました。
-    goto :client_mode
 ) else (
     goto :client_mode
 )
@@ -83,37 +71,15 @@ set mode=client
 goto :Start_download
 
 :config_setup
-rem "=====呼び出しコマンド"
-rem "QGIS.cfg.bat"の読み込み"
-REM 設定ファイルの読み込み（結合）
-rem "ダウンロードサイトの選択"
-for /f %%a in (QGIS_site.txt) do (
-  set site=%%a
-)
-
+rem "-----------------------------------------------------"
 rem "ダウンロードサイト"
-rem -----------------------------------------------------
-rem "デフォルト　site=1 pigreco 本家（最新版）"
-rem "https://github.com/pigreco/QGIS_portable_3x"
-if %site% == 2 (
-  rem "site=2 pigreco 本家（旧版）"
-  set QGIS_ver=3.22.16
-  set QGIS_http=https://drive.google.com/file/d/103EBACERFZXL4IoNg3d0Q0FBaCu5sAcN/view
-  set QGIS_File=OSGeo4W64_3.22.16-ltr_grass-saga.7z
-  rem "解凍フォルダ"
-  set QGIS_extract_folder=OSGeo4W64
-  set QGIS_core_plugin_folder=qgis\apps\qgis-ltr\python\plugins
-) else (
-  rem "デフォルト"
-  rem "site=1 pigreco 本家（最新版）"
-  set QGIS_ver=3.28.5
-  set QGIS_http=https://drive.google.com/file/d/10Vu-JFyuiiJcpwIjXaBkHIyG_Th28k1s/view
-  set QGIS_File=OSGeo4W64_3.28.5-ltr_grass-saga.7z
-  rem "解凍フォルダ"
-  set QGIS_extract_folder=OSGeo4W64
-  set QGIS_core_plugin_folder=qgis\apps\qgis-ltr\python\plugins
-)
-
+rem "-----------------------------------------------------"
+set QGIS_ver=3.28.9
+set QGIS_http=https://drive.google.com/file/d/1wwvgiMAeqiw3pDRCRNT3OlMu_-zWWb7L/view?usp=sharing
+set QGIS_File=OSGeo4W64_3.28.9-ltr_grass-saga.7z
+rem "解凍フォルダ"
+set QGIS_extract_folder=OSGeo4W64
+set QGIS_core_plugin_folder=qgis\apps\qgis-ltr\python\plugins
 exit /b
 
 :Start_download
@@ -122,10 +88,6 @@ rem "====================配信用QGISのダウンロード===================="
 rem "=============================================================="
 
 SET QGIS_Folder=QGIS_%QGIS_ver%
-
-rem "=====初期フォルダの作成"
-md %QGIS_delivery%
-md %QGIS_delivery%\plugin\
 
 rem "==========配信用ファイルをインターネットからダウンロード=========="
 rem "サーバーとして動作"
@@ -165,16 +127,17 @@ if exist "QGIS_delivery_server.cfg" (
         )
 
         :Plugin_download
-        rem "追加コアプラグインのダウンロード"
+        rem "追加プラグインのダウンロード"
         rem "tokens=1,2 を使って、スペース区切りの文字列"
         for /f "tokens=1,2" %%a in (QGIS_plugin.txt) do (
             set QGIS_plugin_http=%%a
             set QGIS_plugin_File=%%b
-            if not exist %QGIS_delivery%\plugin\!QGIS_plugin_File! (
+            if not exist plugin\!QGIS_plugin_File! (
                 rem "=====ファイルダウンロード"
+                rem "プラグイン保存先をランチャー内に変更"
                 rem "bitsadmin /transfer ＜ジョブ名＞ ＜URL＞ ＜保存先ファイル名＞"
                 echo プラグインのダウンロード：!QGIS_plugin_http!!QGIS_plugin_File!
-                bitsadmin /transfer download_QGIS_plugin_!QGIS_plugin_http! !QGIS_plugin_http!!QGIS_plugin_File! %QGIS_delivery%\plugin\!QGIS_plugin_File!
+                bitsadmin /transfer download_QGIS_plugin_!QGIS_plugin_http! !QGIS_plugin_http!!QGIS_plugin_File! %~dp0plugin\!QGIS_plugin_File!
             )
         )
     )
@@ -202,31 +165,26 @@ if not exist %QGIS_Install%\%QGIS_Folder% (
     call 7zr.exe x -y %QGIS_delivery%\%QGIS_Folder%.7z -o%QGIS_Install%
 )
 
-rem "qgisconfig配信元のフォルダ内にsystem_verを設置"
-if not exist %QGIS_delivery%\qgisconfig\system_ver (
-    msg %username% system_verを配布
-    rem "解凍の前にいったん削除"
-    rem "/s サブディレクトリ含む /q メッセージなし"
-    rmdir /s /q %QGIS_delivery%\qgisconfig\system_ver
-    call powershell -command "copy-item system_ver %QGIS_delivery%\qgisconfig\system_ver -Recurse -force
-)
-
-rem "==========profiles等のqgisconfigを配布=========="
+rem "==========qgisconfig\profilesを配布=========="
 rem ２つのファイルを比較して更新処理
-fc /L %QGIS_delivery%\qgisconfig\system_ver\qgisconfig_ver.txt %USERPROFILE%\Documents\qgisconfig\system_ver\qgisconfig_ver.txt
+fc /L %~dp0qgisconfig\system_ver\qgisconfig_ver.txt %USERPROFILE%\Documents\qgisconfig\system_ver\qgisconfig_ver.txt
 rem "遅延環境変数の記述方法を「%変数名%」から「!変数名!」に変更"
 if %errorlevel%==0 (
     rem "ファイル内容が等しい"
 ) else (
+    rem "qgisconfig_ver.txtの配布"
+    md %USERPROFILE%\Documents\qgisconfig\system_ver
+    copy %~dp0qgisconfig\system_ver\qgisconfig_ver.txt %USERPROFILE%\Documents\qgisconfig\system_ver\qgisconfig_ver.txt
+    rem msg %username% qgisconfig_ver.txtを配布
+
     rem "ファイル内容が違う、ファイルがない等"
     rem "コマンドプロンプトはネットワークフォルダ非対応のためpowershellで実行"
     rem "フォルダ以下すべて -Recurse"
-    rem "既存フォルダがあっても強制 -force" 
+    rem "既存フォルダがあっても強制 -force"
     msg %username% qgisconfigを配布
-    rem "call powershell -command "copy-item %QGIS_delivery%\qgisconfig %QGIS_Install%\qgisconfig -Recurse -force"
     rem "/s サブディレクトリ含む /q メッセージなし"
-    rmdir /s /q %USERPROFILE%\Documents\qgisconfig
-    call powershell -command "copy-item %QGIS_delivery%\qgisconfig %USERPROFILE%\Documents\qgisconfig -Recurse -force
+    rmdir /s /q %USERPROFILE%\Documents\qgisconfig\profiles
+    call powershell -command "copy-item %~dp0qgisconfig\profiles %USERPROFILE%\Documents\qgisconfig\profiles -Recurse -force
 )
 
 rem "==========プラグインを配布=========="
@@ -251,34 +209,36 @@ for /f "tokens=1,2,3" %%a in (QGIS_plugin.txt) do (
         rem "=====Zipファイルの解凍 PowerShellコマンド"
         rem "Expand-Archive -Path ＜ZIPファイル＞　＜展開先フォルダ＞"
         echo プラグインのインストール：!QGIS_plugin_http!!QGIS_plugin_File!
-        rem "プラグイン保存先をランチャー内に変更"
-        rem powershell Expand-Archive -Path  %QGIS_delivery%\plugin\!QGIS_plugin_File! %USERPROFILE%\Documents\qgisconfig\profiles\default\python\plugins
         powershell Expand-Archive -Path  %~dp0plugin\!QGIS_plugin_File! %USERPROFILE%\Documents\qgisconfig\profiles\default\python\plugins
+
+        rem "!QGIS_plugin_folder!_ver.txtの配布"
+        md %USERPROFILE%\Documents\qgisconfig\system_ver
+        copy %~dp0qgisconfig\system_ver\!QGIS_plugin_folder!_ver.txt %USERPROFILE%\Documents\qgisconfig\system_ver\!QGIS_plugin_folder!_ver.txt
     ) else (
         rem "バージョンチェック"
-        fc /L system_ver\!QGIS_plugin_folder!_ver.txt %USERPROFILE%\Documents\qgisconfig\system_ver\!QGIS_plugin_folder!_ver.txt
+        fc /L %~dp0qgisconfig\system_ver\!QGIS_plugin_folder!_ver.txt %USERPROFILE%\Documents\qgisconfig\system_ver\!QGIS_plugin_folder!_ver.txt
             if %errorlevel%==0 (
             rem "ファイル内容が等しい"
             rem msg %username% !QGIS_plugin_folder!バージョンアップはありません
         ) else (
+            rem "!QGIS_plugin_folder!_ver.txtの配布"
+            md %USERPROFILE%\Documents\qgisconfig\system_ver
+            copy %~dp0qgisconfig\system_ver\!QGIS_plugin_folder!_ver.txt %USERPROFILE%\Documents\qgisconfig\system_ver\!QGIS_plugin_folder!_ver.txt
+
 	    set plugins_flag=1
             rem "ファイル内容が違う、ファイルがない等"
             rem "コマンドプロンプトはネットワークフォルダ非対応のためpowershellで実行"
             rem "フォルダ以下すべて -Recurse"
             rem "既存フォルダがあっても強制 -force" 
-            msg %username% !QGIS_plugin_folder!バージョンアップによる再配布
             rem "解凍の前にいったん削除"
             rem "/s サブディレクトリ含む /q メッセージなし"
             rmdir /s /q %USERPROFILE%\Documents\qgisconfig\profiles\default\python\plugins\!QGIS_plugin_folder!
-            powershell Expand-Archive -Path  %QGIS_delivery%\plugin\!QGIS_plugin_File! %USERPROFILE%\Documents\qgisconfig\profiles\default\python\plugins
+            powershell Expand-Archive -Path  %~dp0plugin\!QGIS_plugin_File! %USERPROFILE%\Documents\qgisconfig\profiles\default\python\plugins
             call 7zr.exe e x -y %QGIS_delivery%\plugin\!QGIS_plugin_File! -o%USERPROFILE%\Documents\qgisconfig\profiles\default\python\plugins
+            msg %username% !QGIS_plugin_folder!バージョンアップによる再配布
         ) 
     )
-    rem 入れ子のある解凍に対応
-    rem if not exist %USERPROFILE%\Documents\qgisconfig\profiles\default\python\plugins\!QGIS_plugin_folder!\!QGIS_plugin_folder!(
-    rem    move %USERPROFILE%\Documents\qgisconfig\profiles\default\python\plugins\!QGIS_plugin_folder!\!QGIS_plugin_folder! %USERPROFILE%\Documents\qgisconfig\profiles\default\python\plugins\!QGIS_plugin_folder!
-    rem )
- )
+)
 
 rem "==========プラグインのカスタマイズ=========="
 rem "プラグイン更新有の場合は、必要なカスタムファイルの上書き"
