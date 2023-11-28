@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/plugins/search_zmap" >
-        <file>icons/icon.png</file>
-    </qresource>
-</RCC>
