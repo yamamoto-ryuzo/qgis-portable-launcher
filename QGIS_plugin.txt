@@ -11,3 +11,7 @@ NUll SearchZmap-main.zip SearchZmap-main
 https://raw.githubusercontent.com/yamamoto-ryuzo/yr-qgis-portable-launcher-repository/main/ SpreadsheetLayers-2.0.1.zip SpreadsheetLayers
 https://plugins.qgis.org/plugins/StreetView/version/3.2/download/ StreetView-3.2.zip StreetView
 https://raw.githubusercontent.com/yamamoto-ryuzo/yr-qgis-portable-launcher-repository/main/ zoomview-1.1.1.zip zoomview
+https://plugins.qgis.org/plugins/plateau_plugin/version/0.0.3/download/ plateau_plugin-0.0.3.zip plateau_plugin
+https://plugins.qgis.org/plugins/Qgis2threejs/version/2.7.1/download/ Qgis2threejs-2.7.1.zip Qgis2threejs
+https://plugins.qgis.org/plugins/QuickDEM4JP/version/1.0.3/download/ QuickDEM4JP-1.0.3.zip QuickDEM4JP
+https://plugins.qgis.org/plugins/CustomToolBar/version/1.1/download/ CustomToolBar-1.1.zip CustomToolBar
