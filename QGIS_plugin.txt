@@ -1,3 +1,4 @@
+https://plugins.qgis.org/plugins/CustomToolBar/version/1.1/download/ CustomToolBar-1.1.zip CustomToolBar
 Null EasyAttributeFilter-main.zip EasyAttributeFilter-main
 https://raw.githubusercontent.com/ easyprint-feature-qgis3.zip easyprint-feature-qgis3
 https://github.com/yamamoto-ryuzo/GEO-search-plugin/releases/download/2.1/ GEO-search-plugin-main.zip GEO-search-plugin-main
@@ -6,12 +7,11 @@ https://github.com/xcaeag/MenuFromProject-Qgis-Plugin/releases/download/v2.0.4/ 
 Null meshprint-main.zip meshprint-main
 https://github.com/yamamoto-ryuzo/yr-qgis-portable-launcher-repository/raw/main/ qgis-instantprint-plugin-master.zip qgis-instantprint-plugin-master
 https://github.com/MIERUNE/qgis-mojxml-plugin/releases/download/v0.5.0/ qgis-mojxml-plugin-v0.5.0.zip mojxml_plugin
+https://plugins.qgis.org/plugins/Qgis2threejs/version/2.7.1/download/ Qgis2threejs-2.7.1.zip Qgis2threejs
+https://plugins.qgis.org/plugins/QuickDEM4JP/version/1.0.3/download/ QuickDEM4JP-1.0.3.zip QuickDEM4JP
 https://github.com/NationalSecurityAgency/qgis-searchlayers-plugin/releases/download/3.0.14/ searchlayers-3.0.14.zip searchlayers
 NUll SearchZmap-main.zip SearchZmap-main
 https://raw.githubusercontent.com/yamamoto-ryuzo/yr-qgis-portable-launcher-repository/main/ SpreadsheetLayers-2.0.1.zip SpreadsheetLayers
 https://plugins.qgis.org/plugins/StreetView/version/3.2/download/ StreetView-3.2.zip StreetView
 https://raw.githubusercontent.com/yamamoto-ryuzo/yr-qgis-portable-launcher-repository/main/ zoomview-1.1.1.zip zoomview
 https://plugins.qgis.org/plugins/plateau_plugin/version/0.0.3/download/ plateau_plugin-0.0.3.zip plateau_plugin
-https://plugins.qgis.org/plugins/Qgis2threejs/version/2.7.1/download/ Qgis2threejs-2.7.1.zip Qgis2threejs
-https://plugins.qgis.org/plugins/QuickDEM4JP/version/1.0.3/download/ QuickDEM4JP-1.0.3.zip QuickDEM4JP
-https://plugins.qgis.org/plugins/CustomToolBar/version/1.1/download/ CustomToolBar-1.1.zip CustomToolBar
