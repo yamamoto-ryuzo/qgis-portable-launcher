@@ -1,15 +1,6 @@
 ### QGISランチャー
 
-
-https://drive.google.com/drive/folders/1CdTkJd-HtvLOeJjtEOjinKCPFkVXYmCr
-
-<<<<<<< HEAD
-（今後の予定）  
-　32ビット最終版の対応  
-  起動用BATのネットワークドライブへの対応（無理かも・・・）  
-　QGISファイルの解凍失敗に対する対応！（解凍終了後にフラグ用のファイルを設置？）  
-
-（現状）  
+（フォルダー構成）  
 　QGISポータブル版を私の趣味によりカスタマイズしたバージョン管理やインストールを含んだランチャー  
 　WindowsのDOS.BATです。  
 　　QGIS.BAT -----------------　ランチャー本体  
@@ -26,7 +17,7 @@ https://drive.google.com/drive/folders/1CdTkJd-HtvLOeJjtEOjinKCPFkVXYmCr
 　を同じフォルダに設置してください。   
 　　c:\に権限が必要です。  
 
-（注意）  
+**（注意）**  
 　　/ProjectFiles/OpenData　の中身は容量の問題でグーグルドライで共有しているので下記からダウンロードしてください。  
 　　https://drive.google.com/drive/folders/1CdTkJd-HtvLOeJjtEOjinKCPFkVXYmCr?usp=sharing
 
@@ -35,7 +26,7 @@ https://drive.google.com/drive/folders/1CdTkJd-HtvLOeJjtEOjinKCPFkVXYmCr
 起動後，１秒位以内に下記キー押してください。  
 　c:クライアントモード　　ﾃﾞﾌｫﾙﾄ設定  
 　s:サーバーモード  
-#### ・統一環境としてコアプラグインに組み込み予定のプラグイン  
+#### ・統一環境として組込済（予定）のプラグイン  
 ##### 検索  
 　　https://github.com/NationalSecurityAgency/qgis-searchlayers-plugin  
 　　https://github.com/yamamoto-ryuzo/GEO-search-plugin  
