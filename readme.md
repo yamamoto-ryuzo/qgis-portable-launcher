@@ -1,4 +1,8 @@
 ### QGISランチャー
+
+
+https://drive.google.com/drive/folders/1CdTkJd-HtvLOeJjtEOjinKCPFkVXYmCr
+
 <<<<<<< HEAD
 （今後の予定）  
 　32ビット最終版の対応  
@@ -17,8 +21,16 @@
 　　/QGIS_portable_repository-　QGIS本体を保存するフォルダ  
 　　/plugin-------------------　プラグイン本体を保存するフォルダ  
 　　/qgisconfig---------------　各種共通設定ファイルを保存するフォルダ  
+　　/ProjectFiles--------------　初期設定がされたプロジェクトファイルを保存するフォルダ  
+　　/ProjectFiles/OpenData--　プロジェクトファイルで利用しているオープンデータを保存するフォルダ  
 　を同じフォルダに設置してください。   
 　　c:\に権限が必要です。  
+
+（注意）  
+　　/ProjectFiles/OpenData　の中身は容量の問題でグーグルドライで共有しているので下記からダウンロードしてください。  
+　　https://drive.google.com/drive/folders/1CdTkJd-HtvLOeJjtEOjinKCPFkVXYmCr?usp=sharing
+
+
 #### ・起動モードの変更方法  
 起動後，１秒位以内に下記キー押してください。  
 　c:クライアントモード　　ﾃﾞﾌｫﾙﾄ設定  
