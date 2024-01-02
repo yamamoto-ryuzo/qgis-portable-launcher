@@ -2,6 +2,7 @@ https://plugins.qgis.org/plugins/CustomToolBar/version/1.1/download/ CustomToolB
 Null EasyAttributeFilter-main.zip EasyAttributeFilter-main
 https://raw.githubusercontent.com/ easyprint-feature-qgis3.zip easyprint-feature-qgis3
 https://github.com/yamamoto-ryuzo/GEO-search-plugin/releases/download/2.1/ GEO-search-plugin-main.zip GEO-search-plugin-main
+https://plugins.qgis.org/plugins/japanese_grids/version/1.2.0/download/ japanese_grids-1.2.0.zip japanese_grids
 https://github.com/3liz/lizmap-plugin/releases/download/3.18.1/ lizmap.3.18.1.zip lizmap
 https://github.com/xcaeag/MenuFromProject-Qgis-Plugin/releases/download/v2.0.4/ menu_from_project.v2.0.4.zip menu_from_project
 Null meshprint-main.zip meshprint-main
