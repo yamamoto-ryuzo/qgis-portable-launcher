@@ -1,3 +1,6 @@
+# https://github.com/yamamoto-ryuzo/yr-qgis-portable-launcher2
+#  に完全移行に伴いアーカイブとなりました。
+
 ### QGISランチャー
 
 （フォルダー構成）  
